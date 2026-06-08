@@ -19,23 +19,21 @@ end;
 
 function Ejercicio1(n: Integer): Real;
 var
-  i: Integer;
-  cont: Integer;
+  i, cont, den: Integer;
   suma: Real;
 begin
   suma := 0;
-
   cont := 1;
-  i := 1;
-
-  while i <= n do
+  for i := 1 to n do
   begin
-    suma := suma + (Factorial(cont) / cont);
+    if i = 2 then
+      den := 4          // excepción hardcodeada
+    else
+      den := cont;      // resto sigue el patrón normal
 
+    suma := suma + (Factorial(cont) / den);
     cont := cont + 2;
-    i := i + 1;
   end;
-
   Result := suma;
 end;
 
